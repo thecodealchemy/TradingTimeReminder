@@ -316,3 +316,43 @@ footer {
 .add-reminder-btn:hover {
   background: var(--border);
 }
+
+.inline-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+}
+
+.notify-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.notify-btn:hover {
+  background: var(--border);
+}
+
+.notify-value {
+  color: var(--primary);
+  font-weight: 500;
+}

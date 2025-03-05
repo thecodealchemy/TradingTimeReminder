@@ -26,21 +26,14 @@
             <label for="reminder-time">Time</label>
             <input type="time" id="reminder-time" required>
           </div>
-          <div class="form-group">
-            <label for="reminder-repeat">Repeat</label>
-            <select id="reminder-repeat">
-              <option value="once">Once</option>
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="reminder-early">Notify Early</label>
-            <select id="reminder-early">
-              <option value="5">5 mins early</option>
-              <option value="10">10 mins early</option>
-              <option value="15">15 mins early</option>
-            </select>
+          <div class="form-group inline-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="reminder-repeat">
+              Repeat Daily
+            </label>
+            <button id="notify-early" class="notify-btn">
+              Notify Early <span class="notify-value">5 mins</span>
+            </button>
           </div>
           <div class="form-actions">
             <button id="save-reminder" class="save-btn">Save</button>

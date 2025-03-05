@@ -218,4 +218,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     indiaCard.classList.toggle("hidden", !trackIndianMarket.checked);
     usCard.classList.toggle("hidden", !trackUSMarket.checked);
   }
+
+  const notifyEarlyBtn = document.getElementById("notify-early");
+  const notifyValues = [5, 10, 15];
+  let currentNotifyIndex = 0;
+
+  notifyEarlyBtn.addEventListener("click", () => {
+    currentNotifyIndex = (currentNotifyIndex + 1) % notifyValues.length;
+    const value = notifyValues[currentNotifyIndex];
+    notifyEarlyBtn.querySelector(".notify-value").textContent = `${value} mins`;
+  });
 });
