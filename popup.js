@@ -91,20 +91,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Render reminders
   async function renderReminders() {
     const reminders = await Storage.getReminders();
+    const remindersList = document.querySelector(".reminders-list");
+
+    if (reminders.length === 0) {
+      remindersList.innerHTML =
+        '<p class="empty-state">No reminders added!</p>';
+      return;
+    }
+
     remindersList.innerHTML = reminders
       .map(
         (reminder) => `
-      <div class="reminder-item">
-        <input type="checkbox" ${reminder.enabled ? "checked" : ""} 
-               onchange="toggleReminder(${reminder.id})">
-        <span>${reminder.time}</span>
-        <span>${reminder.repeat}</span>
-        <span>${reminder.early}m early</span>
-        <button onclick="deleteReminder(${reminder.id})">
-          🗑️
-        </button>
-      </div>
-    `
+        <div class="reminder-item">
+          <input type="checkbox" ${reminder.enabled ? "checked" : ""} 
+                 onchange="toggleReminder(${reminder.id})">
+          <span>${reminder.time}</span>
+          <span>${reminder.repeat}</span>
+          <span>${reminder.early}m early</span>
+          <button onclick="deleteReminder(${reminder.id})">🗑️</button>
+        </div>
+      `
       )
       .join("");
   }
@@ -177,4 +183,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     renderReminders();
   };
+
+  // Market tracking functionality
+  const trackIndianMarket = document.getElementById("trackIndianMarket");
+  const trackUSMarket = document.getElementById("trackUSMarket");
+
+  // Load saved market tracking preferences
+  chrome.storage.local.get(
+    ["trackIndianMarket", "trackUSMarket"],
+    (settings) => {
+      trackIndianMarket.checked = settings.trackIndianMarket ?? true;
+      trackUSMarket.checked = settings.trackUSMarket ?? true;
+      updateMarketVisibility();
+    }
+  );
+
+  // Handle market tracking toggles
+  trackIndianMarket.addEventListener("change", () => {
+    chrome.storage.local.set({ trackIndianMarket: trackIndianMarket.checked });
+    updateMarketVisibility();
+  });
+
+  trackUSMarket.addEventListener("change", () => {
+    chrome.storage.local.set({ trackUSMarket: trackUSMarket.checked });
+    updateMarketVisibility();
+  });
+
+  function updateMarketVisibility() {
+    const indiaCard = document.querySelector(
+      '.market-card[data-market="india"]'
+    );
+    const usCard = document.querySelector('.market-card[data-market="us"]');
+
+    indiaCard.classList.toggle("hidden", !trackIndianMarket.checked);
+    usCard.classList.toggle("hidden", !trackUSMarket.checked);
+  }
 });

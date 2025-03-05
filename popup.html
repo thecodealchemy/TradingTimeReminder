@@ -18,21 +18,34 @@
 
     <main>
       <section id="reminders" class="tab-content active">
-        <div class="reminders-list"></div>
+        <div class="reminders-list">
+          <p class="empty-state">No reminders added!</p>
+        </div>
         <div class="add-reminder-form" style="display: none;">
-          <input type="time" id="reminder-time" required>
-          <select id="reminder-repeat">
-            <option value="once">Once</option>
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-          </select>
-          <select id="reminder-early">
-            <option value="5">5 mins early</option>
-            <option value="10">10 mins early</option>
-            <option value="15">15 mins early</option>
-          </select>
-          <button id="save-reminder" class="save-btn">Save</button>
-          <button id="cancel-reminder" class="cancel-btn">Cancel</button>
+          <div class="form-group">
+            <label for="reminder-time">Time</label>
+            <input type="time" id="reminder-time" required>
+          </div>
+          <div class="form-group">
+            <label for="reminder-repeat">Repeat</label>
+            <select id="reminder-repeat">
+              <option value="once">Once</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reminder-early">Notify Early</label>
+            <select id="reminder-early">
+              <option value="5">5 mins early</option>
+              <option value="10">10 mins early</option>
+              <option value="15">15 mins early</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button id="save-reminder" class="save-btn">Save</button>
+            <button id="cancel-reminder" class="cancel-btn">Cancel</button>
+          </div>
         </div>
         <button class="add-reminder-btn">
           ➕ Add Reminder
@@ -40,16 +53,41 @@
       </section>
 
       <section id="markets" class="tab-content">
+        <div class="market-settings">
+          <h3>Markets to Track</h3>
+          <div class="market-toggles">
+            <label class="market-toggle">
+              <input type="checkbox" id="trackIndianMarket" checked>
+              Indian Market
+            </label>
+            <label class="market-toggle">
+              <input type="checkbox" id="trackUSMarket" checked>
+              US Market
+            </label>
+          </div>
+        </div>
+
         <div class="market-status">
           <div class="market-card" data-market="india">
-            <h3>Indian Market</h3>
-            <p class="status"></p>
-            <p class="time"></p>
+            <div class="market-header">
+              <h3>Indian Market</h3>
+              <span class="market-hours">09:15 - 15:30 IST</span>
+            </div>
+            <div class="market-info">
+              <p class="status"></p>
+              <p class="time"></p>
+            </div>
           </div>
+
           <div class="market-card" data-market="us">
-            <h3>US Market</h3>
-            <p class="status"></p>
-            <p class="time"></p>
+            <div class="market-header">
+              <h3>US Market</h3>
+              <span class="market-hours">09:30 - 16:00 EST</span>
+            </div>
+            <div class="market-info">
+              <p class="status"></p>
+              <p class="time"></p>
+            </div>
           </div>
         </div>
       </section>
