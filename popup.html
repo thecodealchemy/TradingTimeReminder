@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <button class="tab-btn active" data-tab="reminders">Reminders</button>
+        <button class="tab-btn" data-tab="markets">Markets</button>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle">
+        <i data-feather="sun"></i>
+      </button>
+    </header>
+
+    <main>
+      <section id="reminders" class="tab-content active">
+        <div class="reminders-list"></div>
+        <button class="add-reminder-btn">
+          <i data-feather="plus"></i> Add Reminder
+        </button>
+      </section>
+
+      <section id="markets" class="tab-content">
+        <div class="market-status">
+          <div class="market-card" data-market="india">
+            <h3>Indian Market</h3>
+            <p class="status"></p>
+            <p class="time"></p>
+          </div>
+          <div class="market-card" data-market="us">
+            <h3>US Market</h3>
+            <p class="status"></p>
+            <p class="time"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Developed by Market Time Team</p>
+    </footer>
+  </div>
+  <script src="utils/timeUtils.js"></script>
+  <script src="utils/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Market Time Tracker Options</title>
+  <link rel="stylesheet" href="styles/options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Market Time Tracker Settings</h1>
+    
+    <section class="settings-section">
+      <h2>Notification Settings</h2>
+      <div class="setting-group">
+        <label>
+          <input type="checkbox" id="notifyMarketOpen">
+          Notify when markets open
+        </label>
+        <label>
+          <input type="checkbox" id="notifyMarketClose">
+          Notify before markets close
+        </label>
+        <div class="setting-item">
+          <label for="closeNotificationTime">Minutes before market close:</label>
+          <select id="closeNotificationTime">
+            <option value="5">5 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="15">15 minutes</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <h2>Market Selection</h2>
+      <div class="setting-group">
+        <label>
+          <input type="checkbox" id="trackIndianMarket" checked>
+          Track Indian Market
+        </label>
+        <label>
+          <input type="checkbox" id="trackUSMarket" checked>
+          Track US Market
+        </label>
+      </div>
+    </section>
+
+    <button id="save" class="save-btn">Save Settings</button>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

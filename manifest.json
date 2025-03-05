@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Market Time Tracker",
+  "version": "1.0",
+  "description": "Track Indian and US stock market trading times with reminders",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon.svg",
+      "48": "assets/icon.svg",
+      "128": "assets/icon.svg"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "assets/icon.svg",
+    "48": "assets/icon.svg",
+    "128": "assets/icon.svg"
+  }
+}
