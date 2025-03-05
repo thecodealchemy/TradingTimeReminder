@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles/main.css">
-  <link href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.css" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
   <div class="container">
@@ -20,6 +20,21 @@
     <main>
       <section id="reminders" class="tab-content active">
         <div class="reminders-list"></div>
+        <div class="add-reminder-form" style="display: none;">
+          <input type="time" id="reminder-time" required>
+          <select id="reminder-repeat">
+            <option value="once">Once</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+          </select>
+          <select id="reminder-early">
+            <option value="5">5 mins early</option>
+            <option value="10">10 mins early</option>
+            <option value="15">15 mins early</option>
+          </select>
+          <button id="save-reminder" class="save-btn">Save</button>
+          <button id="cancel-reminder" class="cancel-btn">Cancel</button>
+        </div>
         <button class="add-reminder-btn">
           <i data-feather="plus"></i> Add Reminder
         </button>
